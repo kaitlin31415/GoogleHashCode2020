@@ -43,13 +43,15 @@ public class main {
 					String[] params2 = line.split( " ");
 					for (int i = 0; i < Integer.parseInt(params[0]); i++){
 						l.addBook(allBooks.get(Integer.parseInt(params2[i])));
+						allBooks.get(Integer.parseInt(params2[i])).frequency++;
 					}
-					System.out.println(l);
+
 				}
 
-				System.out.println(line);
 				count++;
 			}
+
+			System.out.println(allLibraries);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
