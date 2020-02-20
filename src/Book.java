@@ -3,6 +3,7 @@ public class Book{
     public int id;
     public int score;
     public boolean scanned;
+    public int frequency = 0;
 
     public Book(int bookID, int scr){
         id = bookID;
@@ -11,6 +12,6 @@ public class Book{
 
     @Override
     public String toString() {
-        return "B" + id + " Score: " + score;
+        return "B" + id + " Score: " + score +" Frequency:" + frequency;
     }
 }

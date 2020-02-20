@@ -25,6 +25,13 @@ public class Library{
 
     }
 
+    public int throughPut(int days) {
+        return (days - signUpDelay) * rate;
+
+    }
+
+
+
 
 
 
