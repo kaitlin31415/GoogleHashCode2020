@@ -45,6 +45,7 @@ public class main {
 						l.addBook(allBooks.get(Integer.parseInt(params2[i])));
 						allBooks.get(Integer.parseInt(params2[i])).frequency++;
 					}
+					l.finalizeLibrary();
 
 				}
 

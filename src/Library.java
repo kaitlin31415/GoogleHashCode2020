@@ -20,15 +20,16 @@ public class Library{
     }
 
     public String toString(){
-        return "Library: " + id  +"Signup Delay: " + signUpDelay+ " With Rate: " + rate +" Books: " + listOfBooks;
+        return "Library: " + id  +"Signup Delay: " + signUpDelay+ "Score: " + score +" With Rate: " + rate +" Books: " + listOfBooks +"\n";
 
     }
     public void addBook(Book b){
         books.add(b);
+        books2.add(b);
 
     }
     public void finalizeLibrary(){
-        while(!books.isEmpty()){
+        while(!books2.isEmpty()){
             listOfBooks.add(books2.poll());
         }
 
