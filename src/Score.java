@@ -9,7 +9,7 @@ public class Score{
             totalScore = 0;
             Library current  = theLibraries.get(i);
             for (int  j = 0; j < current.throughPut(numDays/2); i++){
-                   totalScore +=  current.listOfBooks.get(i).score;
+                   totalScore +=  current.listOfBooks.get(i).score - current.listOfBooks.get(i).frequency;
             }
             current.score = totalScore;
 

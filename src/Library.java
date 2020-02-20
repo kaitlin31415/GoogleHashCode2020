@@ -4,6 +4,9 @@ import java.util.*;
 
 public class Library{
     private PriorityQueue<Book> books = new PriorityQueue<>((Book b1, Book b2) -> (- Integer.compare(b1.score,b2.score)));
+    private PriorityQueue<Book> books2 = new PriorityQueue<>((Book b1, Book b2) -> (- Integer.compare((b1.score - b1.frequency),(b2.score - b1.frequency))));
+
+
     public ArrayList<Book> listOfBooks = new ArrayList<Book>();
     public int signUpDelay;
     public int rate;
@@ -26,7 +29,7 @@ public class Library{
     }
     public void finalizeLibrary(){
         while(!books.isEmpty()){
-            listOfBooks.add(books.poll());
+            listOfBooks.add(books2.poll());
         }
 
     }
