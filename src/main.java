@@ -1,5 +1,7 @@
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Arrays;
 
 public class main {
 
@@ -56,6 +58,11 @@ public class main {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		Score.getScores(allLibraries, numDays);
+		Collections.sort(allLibraries, Collections.reverseOrder());
+
+		//Print the output
+
 
 
 

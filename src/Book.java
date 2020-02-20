@@ -2,7 +2,7 @@
 public class Book{
     public int id;
     public int score;
-    public boolean scanned;
+    public boolean scanned = false;
     public int frequency = 0;
 
     public Book(int bookID, int scr){
