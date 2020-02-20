@@ -3,6 +3,8 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Arrays;
+import java.io.File;
+import java.io.IOException;
 
 public class main {
 
@@ -120,5 +122,30 @@ public class main {
 		allLines.add(0,  "" + numLibs + "\n");
 		System.out.println(allLines);
 
+		try {
+      		File myObj = new File("output.txt");
+      		if (myObj.createNewFile()) {
+        		System.out.println("File created: " + myObj.getName());
+      		} 
+			else {
+        		System.out.println("File already exists.");
+      		}
+    	} catch (IOException e) {
+      		System.out.println("There was an IO Exception");
+      		e.printStackTrace();
+    	}
+
+		try {
+      		FileWriter w = new FileWriter("output.txt");
+			for(int i = 0; i < allLines.size(); i++){
+				w.write(allLines.get(i));
+			}
+      		myWriter.close();
+      		System.out.println("Successfully wrote to the file.");
+    	} 
+		catch (IOException e) {
+      		System.out.println("There was an IO Exception");
+      		e.printStackTrace();
+    	}
 	}
 }
