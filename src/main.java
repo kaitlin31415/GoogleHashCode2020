@@ -1,4 +1,5 @@
 import java.io.*;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Arrays;
@@ -62,10 +63,62 @@ public class main {
 		Collections.sort(allLibraries, (Library l1, Library l2) -> (- Integer.compare(l1.score,l2.score)));
 
 		//Print the output
+		ArrayList<String> allLines = new ArrayList<String>();
+
+		int numLibs = 0;
+		int numBooksForCurrentLib = 0;
+		int currentLib = 0;
 
 
 
+		while (true){
+			String toReturn = "";
+			if ( numLibs == allLibraries.size() || numDays <allLibraries.get(currentLib).signUpDelay){
+				break;
+			}
 
+			Library current =  allLibraries.get(currentLib);
+			numLibs++;
+
+
+			int numIterations = Integer.min(current.listOfBooks.size(), current.throughPut(numDays));
+			int i = 0;
+
+			String allBooksAsString = "";
+			while (i < numIterations){
+				if (!current.listOfBooks.get(i).scanned){
+					current.listOfBooks.get(i).scanned = true;
+					allBooksAsString +=  "" + current.listOfBooks.get(i).id + " ";
+					numBooksForCurrentLib++;
+				} else {
+					if (numIterations+1 <= current.listOfBooks.size()){
+							numIterations++;
+					} else {
+						numIterations = current.listOfBooks.size();
+
+					}
+
+
+				}
+				i++;
+			}
+			String lib = "" + current.id + " " + numBooksForCurrentLib +"\n";
+			String books = allBooksAsString + "\n";
+
+			allLines.add(lib);
+			allLines.add(books);
+
+
+			numDays-= current.signUpDelay;
+
+			currentLib++;
+			numBooksForCurrentLib = 0;
+
+
+
+		}
+		allLines.add(0,  "" + numLibs + "\n");
+		System.out.println(allLines);
 
 	}
 }
