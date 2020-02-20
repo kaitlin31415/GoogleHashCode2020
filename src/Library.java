@@ -25,10 +25,11 @@ public class Library{
     }
     public void addBook(Book b){
         books.add(b);
+        books2.add(b);
 
     }
     public void finalizeLibrary(){
-        while(!books.isEmpty()){
+        while(!books2.isEmpty()){
             listOfBooks.add(books2.poll());
         }
 
