@@ -1,8 +1,7 @@
 public class Score{
-    public ArrayList<String> alist=new ArrayList<String>();
+    public ArrayList<Library> sortedLibraries = new ArrayList<Library>();
 
-    public Book(int bookID, int scr){
-        id = x;
-        score = y;
+    public Score(int ArrayList<Library>){
+        
     } 
 }
