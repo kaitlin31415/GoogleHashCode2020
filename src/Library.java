@@ -3,11 +3,12 @@ import java.util.*;
 
 
 public class Library{
-    public PriorityQueue<Book> books = new PriorityQueue<>((Book b1, Book b2) -> (- Integer.compare(b1.score,b2.score)));
+    private PriorityQueue<Book> books = new PriorityQueue<>((Book b1, Book b2) -> (- Integer.compare(b1.score,b2.score)));
     public ArrayList<Book> listOfBooks = new ArrayList<Book>();
     public int signUpDelay;
     public int rate;
     public int id;
+    public int score;
 
     public Library (int id, int signUpDelay, int rate){
         this.id = id;
@@ -21,7 +22,12 @@ public class Library{
     }
     public void addBook(Book b){
         books.add(b);
-        listOfBooks.add(b);
+
+    }
+    public void finalizeLibrary(){
+        while(!books.isEmpty()){
+            listOfBooks.add(books.poll());
+        }
 
     }
 
