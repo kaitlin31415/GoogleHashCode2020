@@ -59,7 +59,7 @@ public class main {
 			e.printStackTrace();
 		}
 		Score.getScores(allLibraries, numDays);
-		Collections.sort(allLibraries, Collections.reverseOrder());
+		Collections.sort(allLibraries, (Library l1, Library l2) -> (- Integer.compare(l1.score,l2.score)));
 
 		//Print the output
 
