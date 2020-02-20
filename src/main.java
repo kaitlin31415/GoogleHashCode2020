@@ -40,17 +40,17 @@ public class main {
 				} else {
 					String[] params = line.split(" ");
 
-					Library l = new Library(idStart, Integer.parseInt(params[1]), Integer.parseInt(params[2]));
+						Library l = new Library(idStart, Integer.parseInt(params[1]), Integer.parseInt(params[2]));
 
-					idStart++;
-					allLibraries.add(l);
-					line = br.readLine();
-					String[] params2 = line.split( " ");
-					for (int i = 0; i < Integer.parseInt(params[0]); i++){
-						l.addBook(allBooks.get(Integer.parseInt(params2[i])));
-						allBooks.get(Integer.parseInt(params2[i])).frequency++;
-					}
-					l.finalizeLibrary();
+						idStart++;
+						allLibraries.add(l);
+						line = br.readLine();
+						String[] params2 = line.split(" ");
+						for (int i = 0; i < Integer.parseInt(params[0]); i++) {
+							l.addBook(allBooks.get(Integer.parseInt(params2[i])));
+							allBooks.get(Integer.parseInt(params2[i])).frequency++;
+						}
+						l.finalizeLibrary();
 
 				}
 
@@ -140,7 +140,7 @@ public class main {
 			for(int i = 0; i < allLines.size(); i++){
 				w.write(allLines.get(i));
 			}
-      		myWriter.close();
+      		w.close();
       		System.out.println("Successfully wrote to the file.");
     	} 
 		catch (IOException e) {
